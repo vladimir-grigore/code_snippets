@@ -15,8 +15,8 @@ module.exports = () => {
         .done(function (lists) {
           res.json(lists);
         })
-        .fail(function () {
-          console.error('there was a problem');
+        .fail(function (err) {
+          console.error('there was a problem', err);
         });
   });
 
@@ -30,8 +30,8 @@ module.exports = () => {
         .done(function (list) {
           res.json(list);
         })
-        .fail(function () {
-          console.error('there was a problem');
+        .fail(function (err) {
+          console.error('there was a problem', err);
         });
   });
 
@@ -45,8 +45,8 @@ module.exports = () => {
         .done(function (list) {
           res.json(list);
         })
-        .fail(function () {
-          console.error('there was a problem');
+        .fail(function (err) {
+          console.error('there was a problem', err);
         });
   });
   
@@ -63,8 +63,47 @@ module.exports = () => {
         .done(function (list) {
           res.json(list);
         })
-        .fail(function () {
-          console.error('there was a problem');
+        .fail(function (err) {
+          console.error('there was a problem', err);
+        });
+  });
+
+  router.patch('/list/update', (req, res) => {
+    if (!req.body) {
+      res.status(400).json({ error: 'invalid request'});
+      return;
+    }
+
+    var listID = parseInt(req.body.id);
+    var listRevision = parseInt(req.body.revision);
+    var updateData = {
+      'title': `${req.body.name}`,
+    };
+
+    wunderlistAPI.http.lists.update(listID, listRevision, updateData)
+        .done(function (list) {
+          res.json(list);
+        })
+        .fail(function (err) {
+          console.error('there was a problem', err);
+        });
+  });
+
+  router.delete('/list/delete', (req, res) => {
+    if (!req.body) {
+      res.status(400).json({ error: 'invalid request'});
+      return;
+    }
+
+    var listID = parseInt(req.body.id);
+    var listRevision = parseInt(req.body.revision);
+
+    wunderlistAPI.http.lists.deleteID(listID, listRevision)
+        .done(function (list) {
+          res.json(list);
+        })
+        .fail(function (err) {
+          console.error('there was a problem', err);
         });
   });
 

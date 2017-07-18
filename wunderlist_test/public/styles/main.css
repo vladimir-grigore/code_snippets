@@ -34,7 +34,7 @@ body {
   left: initial;
 }
 
-.add_list {
+.list {
   display: flex;
   align-items: center;
 }
@@ -49,14 +49,15 @@ body {
     100% { opacity: 0; }
 }
 
-.add_list input {
+.input {
   animation: 1s ease 0s normal forwards 1 fadein;
   padding: 13px;
   border: none;
   margin: 0 10px 0 10px;
+  width: 150px;
 }
 
-#add_list {
+.button {
   animation: 1s ease 0s normal forwards 1 fadein;
 }
 
