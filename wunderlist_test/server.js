@@ -1,29 +1,24 @@
-require('dotenv').config();
 var express = require('express');
 var PORT = 3000;
-
-var WunderlistSDK = require('wunderlist');
-var wunderlistAPI = new WunderlistSDK({
-  'accessToken': process.env.ACCESS_TOKEN,
-  'clientID': process.env.CLIENT_ID
-});
-
 var app = express();
+const api_routes  = require("./api");
+const bodyParser  = require("body-parser");
 
 //Configuration
-app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
+app.use(express.static("public"));
 
 app.get('/', (req, res) => {
-  wunderlistAPI.http.lists.all()
-    .done(function (lists) {
-       res.json(lists);
-      /* do stuff */
-    })
-    .fail(function () {
-      console.error('there was a problem');
-    });
+  res.render('index');
 });
+
+app.get('/lists', (req, res) => {
+  res.render('lists');
+});
+
+// API routes
+app.use("/api", api_routes());
 
 //Open port 3000
 app.listen(PORT, () => {
