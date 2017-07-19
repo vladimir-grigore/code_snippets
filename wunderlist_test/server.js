@@ -17,6 +17,10 @@ app.get('/lists', (req, res) => {
   res.render('lists');
 });
 
+app.get('/tasks', (req, res) => {
+  res.render('tasks');
+});
+
 // API routes
 app.use("/api", api_routes());
 

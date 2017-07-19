@@ -1,6 +1,6 @@
 body {
   padding: 40px;
-  background: #4f4040;
+  background: #101033;
   font-family: "Muli", sans-serif; 
 }
 
@@ -22,18 +22,6 @@ body {
   background: white;
 }
 
-.results {
-  position: absolute;
-  width: 800px;
-  height: 800px;
-  border: 1px solid #337ab7;
-  background: rgba(255,255,255,.2);
-  display: block;
-  top: 40px;
-  right: 50px;
-  left: initial;
-}
-
 .list {
   display: flex;
   align-items: center;
@@ -42,11 +30,6 @@ body {
 @keyframes fadein{
     0% { opacity: 0; }
     100% { opacity: 1; }
-}
-
-@keyframes fadeout{
-    0% { opacity: 1; }
-    100% { opacity: 0; }
 }
 
 .input {
@@ -62,6 +45,5 @@ body {
 }
 
 .hidden {
-  animation: 1s ease 0s normal backwards 1 fadeout;
   visibility: hidden; 
 }
