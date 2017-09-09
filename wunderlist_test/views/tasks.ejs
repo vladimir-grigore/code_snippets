@@ -1,0 +1,35 @@
+<%- include partials/_head %>
+  <body>
+    <a class="links" href="/">Home</a>
+    <section class="all_tasks list">
+      <a class="links" id="all_tasks">All tasks</a>
+      <input class="input hidden" placeholder="List ID..."></input>
+      <a class="links hidden button" id="get_tasks">Get tasks</a>
+    </section>
+    <section class="single_task list">
+      <a class="links" id="single_task">Single task</a>
+      <input class="input hidden" placeholder="List ID..."></input>
+      <a class="links hidden button" id="get_task">Get task</a>
+    </section>
+    <section class="add_task list">
+      <a class="links" id="create_task">Create task</a>
+      <input class="input hidden" id="id_new" placeholder="List ID..."></input>
+      <input class="input hidden" id="title_new" placeholder="Task title..."></input>
+      <a class="links hidden button" id="add_task">Add new task</a>
+    </section>
+    <section class="update_task list">
+      <a class="links" id="update_task">Update task</a>
+      <input class="input hidden" id="id_update" placeholder=" Task ID..."></input>
+      <input class="input hidden" id="title_update" placeholder="Task title..."></input>
+      <input class="input hidden" id="revision_update" placeholder="Revision..."></input>
+      <a class="links button hidden" id="update">Update</a>
+    </section>
+    <section class="delete_task list">
+      <a class="links" id="delete_task">Delete task</a>
+      <input class="input hidden" id="id_delete" placeholder="Task ID..."></input>
+      <input class="input hidden" id="revision_delete" placeholder="Revision..."></input>
+      <a class="links button hidden" id="delete">Delete</a>
+    </section>
+    <script src="./tasks.js"></script>
+  </body>
+</html>
